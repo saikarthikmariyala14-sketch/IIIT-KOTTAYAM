@@ -1,0 +1,43 @@
+<!-- mariyala sai Karthik
+2026BCS0082
+lab8 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" link="js.css">
+</head>
+<body>
+    
+<div>
+         <h2>What Can JavaScript Do?</h2> 
+<p id="demo">JavaScript can change HTML content.</p> 
+<button type="button" onclick='document.getElementById("demo").innerHTML = "Hello JavaScript!"'>Click Me!</button>
+    </div>
+    <div>
+        <p id="number">Enter a number here</p>
+        <button type="button" onclick='document.getElementById("number").innerHTML="10.50"'>Try...</button>
+    </div>
+    <br><br>
+    <div>
+       <button type="button" onclick="document.write(5 + 6)">Try it</button> 
+    </div>
+    <p id="name"></p>
+    <p id="sum"></p>
+   <script>
+ let x = 18; 
+ const fname = "karthik"; 
+ document.getElementById("name").innerHTML = 
+ fname + " is " + x + " years old.";
+   </script>
+   <script>
+    let a=10;
+    let b=5;
+    let sum=a+b;
+    document.getElementById("sum").innerHTML="sum of " + a+" " +"and " + b+" " + "is " +sum;
+   </script>
+</body>
+</body>
+</html>

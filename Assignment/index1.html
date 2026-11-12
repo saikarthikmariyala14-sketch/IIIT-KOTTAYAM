@@ -1,0 +1,66 @@
+<!-- mariyala sai karthik
+2026bcs0082
+batch3 -->
+<html>
+<head>
+    <title>DOCUMENT</title>
+    <style>
+        body{
+            background-color:beige;
+            margin:40px;
+            
+        }
+        h1{
+            color:blueviolet;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <h1>Online Shopping Discount Calculator</h1>
+     <label for="name">Enter your name:</label>
+    <input type="text" placeholder="enter your name" id="name">
+    <br><br>
+   <label for="amt" >Enter purchase amount:</label>
+    <input type="number"placeholder="enter the amount" id="amt">
+    <br><br>
+    <button onclick="calculate()">Calculate final amount</button>
+    <h3 id="finalval"></h3>
+    <script>
+        function calculate() {
+            let name = document.getElementById("name").value;
+            let amount = Number(document.getElementById("amt").value);
+            let discount = 0;
+            let percent = 0;
+            if (amount >= 5000) {
+                percent = 20;
+            }
+            else if (amount >= 3000) {
+                percent = 15;
+            }
+            else if (amount >= 1000) {
+                percent = 10;
+            }
+            else {
+                percent = 0;
+            }
+            discount = amount * percent / 100;
+            let final = amount - discount;
+            let delivery;
+            if (final > 5000) {
+                delivery = "Eligible for Free Delivery";
+            }
+            else {
+                delivery = "Delivery Charges Applicable";
+            }
+            document.getElementById("finalval").innerHTML =
+                "Customer Name: " + name + "<br>" +
+                "Original Amount: Rs. " + amount + "<br>" +
+                "Discount Amount: Rs. " + discount + "<br>" +
+                "Final Payable Amount: Rs. " + final + "<br>" +
+                "Delivery Status: " + delivery;
+        }
+    </script>
+</body>
+</html>
+
