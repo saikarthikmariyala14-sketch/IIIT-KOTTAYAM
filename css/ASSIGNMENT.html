@@ -1,0 +1,324 @@
+<!-- M.SAI KARTHIK
+2026BCS0082
+BATCH3 -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Profile</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 5px;
+            font-family: Arial, sans-serif;
+            background-color: #eaf5ff;
+            color: #172b45;
+        }
+        header {
+            background: #07518b;
+            color: white;
+            padding: 10px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 10px;
+        }
+        header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+        .sai {
+            font-size: 40px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-size: 14px;
+        }
+
+        nav a:first-child {
+            background: #1382d1;
+            border-radius: 10px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 32% 68%;
+            gap: 8px;
+            margin: 10px;
+        }
+        .left-section {
+            background: #e1f1ff;
+            border: 2px solid #a9d9f5;
+            border-radius: 12px;
+            padding: 8px;
+        }
+        .profile {
+            text-align: center;
+            background: #075d9f;
+            color: white;
+            border-radius: 10px;
+            padding: 8px;
+            margin-bottom: 8px;
+        }
+        .profile img {
+            width: 80%;
+            height: 145px;
+            object-fit: cover;
+            border: 3px solid #6d8491;
+            border-radius: 10px;
+        }
+        .profile h2 {
+            margin: 5px 0;
+            font-size: 20px;
+        }
+        .profile p {
+            margin: 3px;
+            font-style: italic;
+            font-size: 13px;
+        }
+        .contact {
+            background: #e8f5ff;
+            border: 1px solid #0b7ec5;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .contact h3 {
+            margin: 0 0 8px;
+            color: #010e19;
+        }
+
+        .contact p {
+            font-size: 12px;
+            margin: 7px 0;
+        }
+        .right-section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .top-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 8px;
+        }
+
+        .about {
+            background: #f1f7ff;
+            border: 1px solid #b5d6ef;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .about h3 {
+            background: #1078c8;
+            color: white;
+            padding: 8px;
+            margin: -10px -10px 10px;
+            border-radius: 8px;
+        }
+        .about p {
+            font-size: 12px;
+            line-height: 1.6;
+        }
+        .hobbies {
+            background: #eee5ff;
+            border: 1px solid #c5a9f0;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .hobbies h3 {
+            color: #660ae8;
+            margin: 0 0 8px;
+        }
+
+        .hobbies ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+        .hobbies li {
+            font-size: 13px;
+            margin-bottom: 7px;
+        }
+        .academic {
+            border: 1px solid #02192b;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .academic h3 {
+            background: #113755;
+            color: white;
+            padding: 10px;
+            margin: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #f5faff;
+            text-align: center;
+        }
+        th, td {
+            border: 1px solid #1082fc;
+            padding: 6px;
+            font-size: 13px;
+        }
+        th {
+            background: #c8e1fa;
+        }
+        .website {
+            background: #e6f8df;
+            border: 1px solid #61c941;
+            border-radius: 10px;
+            padding: 12px;
+        }
+
+        .website h3 {
+            margin: 0 0 5px;
+            color: #07518b;
+        }
+
+        .website a {
+            color: blue;
+            font-size: 14px;
+            margin-left: 35px;
+        }
+        footer {
+            background: #07518b;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        @media (max-width: 650px) {
+            header {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            header h1 {
+                font-size: 25px;
+            }
+
+            nav {
+                width: 100%;
+            }
+
+            nav a {
+                padding: 8px;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .top-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="sai">🎓</div>
+        <h1>Student Profile</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <div class="container" id="home">
+        <div class="left-section">
+
+            <div class="profile">
+                <img src="sai.png" alt="Student Photo">
+                <h2>SAI KARTHIK</h2>
+                <p>Department of Computer Science</p>
+                <p>and Engineering</p>
+            </div>
+            <div class="contact" id="contact">
+                <h3>📞 Contact Details</h3>
+                <p> Register Number : 2026BCS0082</p>
+                <p> Date of Birth : 14 MAR 2008</p>
+                <p> Email ID : saikarthikmariyala14@iiitk.ac.in</p>
+                <p> Contact Number : 8519976173</p>
+            </div>
+        </div>
+        <div class="right-section">
+            <div class="top-section">
+                <div class="about" id="about">
+                    <h3>🎓 About Me</h3>
+                    <p>
+                        I am a passionate Computer Science student,
+                        interested in Artificial Intelligence, Web
+                        Technologies and Data Science. I love learning
+                        new technologies and exploring innovative ideas.
+                    </p>
+                </div>
+                <div class="hobbies">
+                    <h3>★ Hobbies</h3>
+                    <ul>
+                        <li>Playing Sports</li>
+                        <li>Photography</li>
+                        <li>Traveling</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="academic">
+                <h3>📖 Academic Details</h3>
+                <table>
+                    <tr>
+                        <th>Semester</th>
+                        <th>Course</th>
+                        <th>Marks</th>
+                        <th>Grade</th>
+                    </tr>
+                    <tr>
+                        <td>Sem 1</td>
+                        <td>CSC111</td>
+                        <td>42</td>
+                        <td>A+</td>
+                    </tr>
+                    <tr>
+                        <td>Sem 1</td>
+                        <td>CSC112</td>
+                        <td>46</td>
+                        <td>A-</td>
+                    </tr>
+                    <tr>
+                        <td>Sem 1</td>
+                        <td>HMC111</td>
+                        <td>44</td>
+                        <td>A-</td>
+                    </tr>
+
+                    <tr>
+                        <td>Sem 1</td>
+                        <td>MAC111</td>
+                        <td>40</td>
+                        <td>A-</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="website">
+                <h3>🌐 College Website</h3>
+                <a href="" target="_blank">
+                    https://www.iiitk.ac.in
+                </a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        IIIT Kottayam | Contact: admissions@iiitk.ac.in
+    </footer>
+</body>
+</html>

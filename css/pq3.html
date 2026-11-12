@@ -1,0 +1,28 @@
+<!-- M.SAI KARTHIK
+BATCH3
+2026BCS0082 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    </head>
+<body>
+    <p id="charging"></p>
+
+    <script>
+        let charging = 100;
+        while(charging > 0) {
+            if(charging < 20) {
+                document.getElementById("charging").innerHTML +=
+                    "Charging is below 20%";
+                break;
+            }
+            document.getElementById("charging").innerHTML +=
+                charging + "%<br>";
+            charging -= 15;
+        }
+    </script>
+</body>
+</html>

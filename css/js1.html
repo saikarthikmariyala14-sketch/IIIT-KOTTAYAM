@@ -1,0 +1,48 @@
+<!-- mariyala sai Karthik
+2026BCS0082
+lab8 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="variables"></p>
+   <label>Enter your name:</label>
+   <input type="text" id="name1" placeholder="Enter name">
+    <label>Enter your age:</label>
+   <input type="number" id="age" placeholder="Enter age">
+   <br><br>
+    <button type="button" 
+  onclick="document.getElementById('variables').innerHTML =
+  document.getElementById('name1').value + ' is ' +
+  document.getElementById('age').value + ' years old';">
+  Click to find age
+  </button>
+    <h2>What happens if we click bottom button?</h2> 
+<p id="demo1">it increases the fontsize of this text</p> 
+<button type="button" 
+onclick="document.getElementById('demo1').style.fontSize='35px'">Click 
+Me!</button>
+<h2>The window.print() Method</h2> 
+<p>Click the following button to print </p> 
+<button onclick="window.print()">Print </button>
+<br><br>
+<label for="a">Enter a:</label>
+<input type="number" id="a">
+<label for="b">Enter b:</label>
+<input type="number" id="b">
+<label for="c">Enter c:</label>
+<input type="number" id="c">
+<p id="sum"></p>
+<button type="button"
+onclick="document.getElementById('sum').innerHTML =
+Number(document.getElementById('a').value) +
+Number(document.getElementById('b').value) +
+Number(document.getElementById('c').value);">
+Add
+</button>
+</body>
+</html>
