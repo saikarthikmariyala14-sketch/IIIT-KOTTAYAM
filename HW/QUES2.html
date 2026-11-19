@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url(a07f45a23bbb9bcca7cc010065b9bafd.jpg);
+        }
+        #tab{
+            border:5px solid pink;
+            opacity:1;
+            font-weight: bold;
+            z-index:10;
+            display:flex;
+            flex-direction: row;
+            justify-content: center;
+            background: linear-gradient(pink,orange,yellow);
+            height:500px
+        }
+        td{
+            text-align: center;
+           border:5px solid grey;
+           text-shadow: 0.1px 3px  rgb(221, 45, 177);
+           text-transform: uppercase;
+        }
+        tr{
+          border:5px solid black;
+        }
+        img{
+            padding-top: 50px;
+            width: 400px;
+            height:380px;
+        }
+        table{
+            border:5px solid black;
+            padding-top: 100px;
+            padding-bottom: 100px;
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+        h1{
+            text-align: center;
+            color:brown
+        }
+       #num{
+          background-color: white;
+          background: linear-gradient(pink,yellow);
+          text-align:center;
+          font-weight:900;
+          color:rgb(6, 245, 82);
+          text-transform: uppercase;
+          text-shadow: 1px 2px rgb(237, 49, 168);
+          z-index:-1;
+       }
+       #sai{
+        text-align:center;
+        color:aquamarine;
+        text-decoration: dotted;
+        font-weight:bold;
+       }
+    </style>
+</head>
+<body>
+    <h1>INDIAN RAILWAYS
+    </h1>
+    <div id="tab">
+        <img src="6069388.jpg">
+        <table>
+         <tr>
+            <td>train number</td>
+            <td>train name</td>
+            <td>arrival time</td>
+            <td>departure time</td>
+            <td>platform number</td>
+         </tr>
+         <tr>
+            <td>16084</td>
+            <td id="kan">kanyakumari</td>
+            <td id="kan1">6:00</td>
+            <td>6:05</td>
+            <td>1</td>
+         </tr>
+         <tr>
+            <td>16065</td>
+            <td id="sab">sabari</td>
+            <td id="sab1">6:00</td>
+            <td>6:05</td>
+            <td>3</td>
+         </tr>
+         <tr>
+            <td>16437</td>
+            <td id="vksp">vksp qln</td>
+            <td id="vksp1">6:00</td>
+            <td>6:05</td>
+            <td>2</td>
+         </tr>
+        </table>
+        <img src="6069388.jpg">
+    </div>
+      <p id="sai">TRAIN STATUS</p>
+        <p id="num"></p>
+    <script>
+      let num=Number(prompt("Enter train number:"));
+      let name;
+      let train;
+      if(num==16084){
+       name=document.getElementById("kan").textContent;
+       train=document.getElementById("kan1").value;
+          }
+      if(num==16065){
+       name=document.getElementById("sab").textContent;
+         train=document.getElementById("sab1").value;}
+      if(num==16437){
+       name=document.getElementById("vksp").textContent;
+     train=document.getElementById("vksp1").value;}
+      if(num==16084||num==16065||num==16437){
+        document.getElementById("num").innerHTML="Train is running delay..."+"<br>"+"TRAIN name:"+name+"<br>"+"TRAIN ARRIVAL TIME:"+train;
+
+      } else{
+         document.getElementById("num").innerHTML="TRAIN STATUS:"+"Train not found";
+      }
+    </script>
+</body>
+</html>
