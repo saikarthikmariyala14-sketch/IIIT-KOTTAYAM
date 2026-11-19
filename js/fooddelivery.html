@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: antiquewhite;
+            padding:60px;
+        }
+        #name{
+            background-color: chartreuse;
+            opacity: 1.5;
+        }
+        #itemname{
+            background-color: chartreuse;
+            opacity: 1.5;
+        }
+        #price{
+            background-color: chartreuse;
+            opacity: 1.5;
+        }
+        #quan{
+            background-color: chartreuse;
+            opacity: 1.5;
+        }
+        #dis{
+            background-color: chartreuse;
+            opacity: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <h1>Food Order Billing Web Application</h1>
+    <label id="name">Enter your name:</label>
+    <input id="name1" placeholder="Enter your name" type="text" for="name">
+    <br> <br>
+    <label id="itemname">Enter Food item name:</label>
+    <input id="itemname1" placeholder="Enter food item name" type="text" for="itemname">
+     <br> <br>
+    <label id="price">Enter Price per Item:</label>
+    <input id="price1" placeholder="Enter price per item" type="text" for="price">
+     <br> <br>
+    <label id="quan">Enter the number of quantity:</label>
+    <input id="quan1" placeholder="Enter the quantity" type="text" for="quan">
+     <br> <br>
+    <label id="dis">Enter the delivery distance:</label>
+    <input id="dis1" placeholder="delivery distance" type="text" for="dis">
+    <br><br>
+     <button onclick="total1()">Final Bill</button>
+     <p id="total"></p>
+     <script>
+        let name=document.getElementById("name1").value;
+        let itemname=document.getElementById("itemname1").value;
+        let price=Number(document.getElementById("price1").value);
+        let quan=Number(document.getElementById("quan1").value);
+        let dis=Number(document.getElementById("dis1").value);
+        let total=price*quan;
+        function total1(){
+        document.getElementById("total").innerHTML=total;
+    }
+
+
+     </script>
+</body>
+</html>

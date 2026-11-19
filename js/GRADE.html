@@ -1,0 +1,42 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Student Grade Calculator</title> 
+</head> 
+<body> 
+ 
+<h2>Student Grade Calculator</h2> 
+ 
+<script> 
+function calculateTotal(a, b, c) { 
+    return a + b + c; 
+} 
+function calculateAverage(total) { 
+    return total / 3; 
+} 
+function calculateGrade(avg) { 
+    if (avg >= 90) 
+        return "A"; 
+    else if (avg >= 80) 
+        return "B"; 
+    else if (avg >= 70) 
+        return "C"; 
+    else if (avg >= 60) 
+        return "D"; 
+    else 
+        return "F"; 
+} 
+let name = prompt("Enter student name:"); 
+let m1 = Number(prompt("Enter mark in Subject 1:")); 
+let m2 = Number(prompt("Enter mark in Subject 2:")); 
+let m3 = Number(prompt("Enter mark in Subject 3:")); 
+let total = calculateTotal(m1, m2, m3); 
+let average = calculateAverage(total); 
+let grade = calculateGrade(average); 
+document.write("Student Name: " + name + "<br>"); 
+document.write("Total Marks: " + total + "<br>"); 
+document.write("Average: " + average.toFixed(2) + "<br>"); 
+document.write("Grade: " + grade); 
+</script> 
+</body> 
+</html>

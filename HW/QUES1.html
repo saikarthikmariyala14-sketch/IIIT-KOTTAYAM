@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Parking Management</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+
+        .slot {
+            display: inline-block;
+            width: 100px;
+            padding: 20px;
+            margin: 10px;
+            color: white;
+            background-color: green;
+            border-radius: 8px;
+        }
+
+        .occupied {
+            background-color: red;
+        }
+
+        input, select, button {
+            padding: 10px;
+            margin: 8px;
+        }
+
+        button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Smart Parking Slot Management</h1>
+
+    <h2>Available Slots: <span id="available">5</span></h2>
+
+    <h3>Parking Slots</h3>
+
+    <div id="parking">
+        <div class="slot" id="slot1">Slot 1<br>Available</div>
+        <div class="slot" id="slot2">Slot 2<br>Available</div>
+        <div class="slot" id="slot3">Slot 3<br>Available</div>
+        <div class="slot" id="slot4">Slot 4<br>Available</div>
+        <div class="slot" id="slot5">Slot 5<br>Available</div>
+    </div>
+
+    <h3>Vehicle Entry</h3>
+
+    <input type="text" id="reg" placeholder="Registration Number" >
+
+    <select id="type">
+        <option value="Car">Car</option>
+        <option value="Bike">Bike</option>
+        <option value="Bus">Bus</option>
+    </select>
+
+    <select id="slotChoice">
+        <option value="1">Slot 1</option>
+        <option value="2">Slot 2</option>
+        <option value="3">Slot 3</option>
+        <option value="4">Slot 4</option>
+        <option value="5">Slot 5</option>
+    </select>
+
+    <br>
+
+    <button onclick="enterVehicle()">Vehicle Enter</button>
+
+    <button onclick="exitVehicle()">Vehicle Exit</button>
+
+    <h3 id="message"></h3>
+
+    <h3 id="fee"></h3>
+
+    <script>
+
+        let available = 5;
+
+        let vehicles = {};
+
+        function enterVehicle() {
+            let reg = document.getElementById("reg").value;
+            let type = document.getElementById("type").value;
+            let slot = document.getElementById("slotChoice").value;
+            let box = document.getElementById("slot" + slot);
+            if (reg == "") {
+                alert("Enter registration number");
+                return;
+            }
+            if (box.classList.contains("occupied")) {
+                alert("Slot already occupied!");
+                return;
+            }
+            let fee = 0;
+            if (type == "Car") {
+                fee = 50;
+            }
+            else if (type == "Bike") {
+                fee = 20;
+            }
+            else if (type == "Bus") {
+                fee = 100;
+            }
+            box.classList.add("occupied");
+            box.innerHTML = "Slot " + slot + "<br>Occupied";
+            vehicles[slot] = {
+                reg: reg,
+                type: type,
+                fee: fee
+            };
+            available--;
+            document.getElementById("available").innerHTML = available;
+            document.getElementById("message").innerHTML =
+                "Vehicle parked successfully!";
+            document.getElementById("fee").innerHTML =
+                "Parking Fee: ₹" + fee;
+        }
+        function exitVehicle() {
+
+            let slot = document.getElementById("slotChoice").value;
+
+            let box = document.getElementById("slot" + slot);
+
+            if (!box.classList.contains("occupied")) {
+                alert("Slot is already available!");
+                return;
+            }
+
+            box.classList.remove("occupied");
+            box.innerHTML = "Slot " + slot + "<br>Available";
+
+            delete vehicles[slot];
+
+            available++;
+
+            document.getElementById("available").innerHTML = available;
+
+            document.getElementById("message").innerHTML =
+                "Vehicle exited successfully!";
+
+            document.getElementById("fee").innerHTML = "";
+        }
+
+    </script>
+
+</body>
+</html>

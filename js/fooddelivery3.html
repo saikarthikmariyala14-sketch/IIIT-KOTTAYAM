@@ -1,0 +1,113 @@
+<!-- m.sai karthik
+2026bcs0082
+batch3 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: antiquewhite;
+            padding:60px;
+        }
+        #name{
+            background-color: chartreuse;
+            opacity: 1.5;
+        }
+        #itemname{
+            background-color: chartreuse;
+            opacity: 1.5;
+        }
+        #price{
+            background-color: chartreuse;
+            opacity: 1.5;
+        }
+        #quan{
+            background-color: chartreuse;
+            opacity: 1.5;
+        }
+        #dis{
+            background-color: chartreuse;
+            opacity: 1.5;
+        }
+        #total{
+           background-color: red;
+           border:10px solid yellow
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Food Order Billing Web Application</h1>
+
+    <label id="name" for="name1">Enter your name:</label>
+    <input id="name1" placeholder="Enter your name" type="text">
+
+    <br><br>
+
+    <label id="itemname" for="itemname1">Enter Food item name:</label>
+    <input id="itemname1" placeholder="Enter food item name" type="text">
+
+    <br><br>
+
+    <label id="price" for="price1">Enter Price per Item:</label>
+    <input id="price1" placeholder="Enter price per item" type="number">
+
+    <br><br>
+
+    <label id="quan" for="quan1">Enter the number of quantity:</label>
+    <input id="quan1" placeholder="Enter the quantity" type="number">
+
+    <br><br>
+
+    <label id="dis" for="dis1">Enter the delivery distance:</label>
+    <input id="dis1" placeholder="delivery distance" type="number">
+
+    <br><br>
+
+    <button onclick="total1()">Calculate Bill</button>
+     <br><br>
+    <div id="total"></div>
+
+    <script>
+
+        function calculateFoodCost(price, quantity){
+            return price * quantity;
+        }
+
+        function calculateDeliveryCharge(distance){
+            return distance * 10;
+        }
+
+        function calculateFinalBill(foodCost, deliveryCharge){
+            return foodCost + deliveryCharge;
+        }
+
+        function total1(){
+
+            let name = document.getElementById("name1").value;
+            let itemname = document.getElementById("itemname1").value;
+            let price = Number(document.getElementById("price1").value);
+            let quan = Number(document.getElementById("quan1").value);
+            let dis = Number(document.getElementById("dis1").value);
+
+            let foodCost = calculateFoodCost(price, quan);
+
+            let deliveryCharge = calculateDeliveryCharge(dis);
+
+            let finalBill = calculateFinalBill(foodCost, deliveryCharge);
+
+            document.getElementById("total").innerHTML =
+                "Customer Name: " + name + "<br>" +
+                "Food Item: " + itemname + "<br>" +
+                "Food Cost: " + foodCost + "<br>" +
+                "Delivery Charge: ₹" + deliveryCharge + "<br>" +
+                "Final Bill: ₹" + finalBill;
+
+        }
+
+    </script>
+</body>¤¤€
+</html>

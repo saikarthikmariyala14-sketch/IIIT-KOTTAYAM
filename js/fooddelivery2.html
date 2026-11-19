@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Billing</title>
+
+    <style>
+        /* body {
+            background-color: antiquewhite;
+            padding: 60px;
+        }
+
+        label {
+            display: inline-block;
+            width: 220px;
+            font-weight: bold;
+        }
+
+        input {
+            background-color: white;
+            padding: 8px;
+            border: 1px solid gray;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: brown;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkred;
+        }
+
+        #total {
+            margin-top: 25px;
+            padding: 15px;
+            background-color: white;
+            width: fit-content;
+            border-radius: 8px;
+        } */
+           body{
+            background-color: antiquewhite;
+            padding:60px;
+        }
+        #name{
+            background-color: chartreuse;
+            opacity: 1.5;
+        }
+        #itemname{
+            background-color: chartreuse;
+            opacity: 1.5;
+        }
+        #price{
+            background-color: chartreuse;
+            opacity: 1.5;
+        }
+        #quan{
+            background-color: chartreuse;
+            opacity: 1.5;
+        }
+        #dis{
+            background-color: chartreuse;
+            opacity: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Food Order Billing Web Application</h1>
+    <label for="name1">Enter your name:</label>
+    <input id="name1" placeholder="Enter your name" type="text">
+    <br><br>
+    <label for="itemname1">Enter Food item name:</label>
+    <input id="itemname1" placeholder="Enter food item name" type="text">
+
+    <br><br>
+
+    <label for="price1">Enter Price per Item:</label>
+    <input id="price1" placeholder="Enter price per item" type="number">
+
+    <br><br>
+
+    <label for="quan1">Enter the number of quantity:</label>
+    <input id="quan1" placeholder="Enter quantity" type="number">
+
+    <br><br>
+
+    <label for="dis1">Enter the delivery distance:</label>
+    <input id="dis1" placeholder="Delivery distance" type="number">
+
+    <br><br>
+
+    <button onclick="total1()">Calculate Bill</button>
+
+    <p id="total"></p>
+
+    <script>
+
+        function calculateFoodCost(price, quantity) {
+            return price * quantity;
+        }
+
+        function calculateDeliveryCharge(distance) {
+            return distance * 10;
+        }
+
+        function calculateFinalBill(foodCost, deliveryCharge) {
+            return foodCost + deliveryCharge;
+        }
+
+        function total1() {
+
+            let name = document.getElementById("name1").value;
+            let itemname = document.getElementById("itemname1").value;
+            let price = Number(document.getElementById("price1").value);
+            let quan = Number(document.getElementById("quan1").value);
+            let dis = Number(document.getElementById("dis1").value);
+
+            if (name === "" || itemname === "" ||
+                price <= 0 || quan <= 0 || dis < 0 ||
+                document.getElementById("price1").value === "" ||
+                document.getElementById("quan1").value === "" ||
+                document.getElementById("dis1").value === "") {
+
+                alert("Please enter valid details!");
+                return;
+            }
+            let foodCost = calculateFoodCost(price, quan);
+            let deliveryCharge = calculateDeliveryCharge(dis);
+            let finalBill = calculateFinalBill(foodCost, deliveryCharge);
+            document.getElementById("total").innerHTML =
+
+                "Customer Name: " + name + "<br><br>" +
+                "Food Item: " + itemname + "<br><br>" +
+                "Price per Item: ₹" + price + "<br><br>" +
+                "Quantity: " + quan + "<br><br>" +
+                "Food Cost: ₹" + foodCost + "<br><br>" +
+                "Delivery Charge: ₹" + deliveryCharge + "<br><br>" +
+                "<b>Final Bill: ₹" + finalBill + "</b>";
+
+        }
+
+    </script>
+
+</body>
+</html>
