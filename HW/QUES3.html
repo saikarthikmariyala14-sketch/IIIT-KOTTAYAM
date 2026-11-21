@@ -1,54 +1,159 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Personal Expense Tracker</title>
+
     <style>
-        #heading{
-            position:sticky;
-            background: linear-gradient(aqua,aquamarine,cadetblue);
+        #heading {
+            position: sticky;
+            background: linear-gradient(aqua, aquamarine, cadetblue);
         }
-        #head{
-            display:flex;
+
+        #head {
+            display: flex;
             flex-direction: column;
             justify-content: center;
             text-align: center;
         }
-        #subs{
+
+        #subs {
             text-transform: capitalize;
             text-shadow: 1px 1px black;
             font-weight: 900;
             font-family: Arial, Helvetica, sans-serif;
             font-variant: inherit;
-             background-color:rgb(22, 234, 234);
+            background-color: rgb(22, 234, 234);
         }
-        body{
-            background-color:rgb(80, 116, 116);
-            border:10px solid black
+
+        body {
+            background-color: rgb(80, 116, 116);
+            border: 10px solid black;
         }
     </style>
 </head>
+
 <body>
+
     <div id="head">
-    <div>
-        <h1 id="heading">PERSONEL EXPENSE TRACKER</h1>
+
+        <div>
+            <h1 id="heading">PERSONEL EXPENSE TRACKER</h1>
+        </div>
+
+        <div id="subs">
+
+            <label id="amt">AMOUNT</label>
+            <input id="amount" type="number">
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <label id="reason">CATEGORY:</label>
+
+            <select id="category">
+                <option value="food">FOOD</option>
+                <option value="travel">TRAVEL</option>
+                <option value="shopping">SHOPPING</option>
+                <option value="education">EDUCATION</option>
+            </select>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <label id="des">DESCRIPTION</label>
+            <input id="description" type="text">
+
+            <br><br>
+
+            <button onclick="addExpense()">ADD EXPENSE</button>
+
+        </div>
+
     </div>
-    <div id="subs">
-        <label id="amt">AMOUNT</label>
-    <input for="amt" type="text">
-    &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <label id="reason">CATEGORY:</label>
-   <select>
-    <option value="food">FOOD</option>
-    <option value="travel"> TRAVEL</option>
-    <option value="expense">EXPENSE</option>
-    <option value="education">EDUCATION</option>
-   </select>
-    &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <label id="des">DESCRIPTION</label>
-    <input for="des" type="text">
-    </div>
-    </div>
+
+    <h2>EXPENSE DETAILS</h2>
+
+    <table border="1" width="100%">
+        <thead>
+            <tr>
+                <th>AMOUNT</th>
+                <th>CATEGORY</th>
+                <th>DESCRIPTION</th>
+                <th>DELETE</th>
+            </tr>
+        </thead>
+
+        <tbody id="expenseList">
+        </tbody>
+    </table>
+
+    <h3>Total Expenses: ₹<span id="total">0</span></h3>
+
+    <h3>Highest Expense: ₹<span id="highest">0</span></h3>
+
+
+    <script>
+
+        let total = 0;
+        let highest = 0;
+
+        function addExpense() {
+
+            let amount = Number(document.getElementById("amount").value);
+            let category = document.getElementById("category").value;
+            let description = document.getElementById("description").value;
+
+            if (amount <= 0 || description === "") {
+                alert("Enter valid details");
+                return;
+            }
+
+            let table = document.getElementById("expenseList");
+
+            let row = table.insertRow();
+
+            row.insertCell(0).innerHTML = amount;
+            row.insertCell(1).innerHTML = category;
+            row.insertCell(2).innerHTML = description;
+
+            let cell = row.insertCell(3);
+            let btn = document.createElement("button");
+            btn.innerHTML = "DELETE";
+            btn.onclick = function() {
+                total = total - amount;
+                row.remove();
+                update();
+            };
+            cell.appendChild(btn);
+            total = total + amount;
+            update();
+            document.getElementById("amount").value = "";
+            document.getElementById("description").value = "";
+        }
+        function update() {
+
+            document.getElementById("total").innerHTML = total;
+
+            let rows = document.getElementById("expenseList").rows;
+
+            highest = 0;
+
+            for (let i = 0; i < rows.length; i++) {
+
+                let x = Number(rows[i].cells[0].innerHTML);
+
+                if (x > highest) {
+                    highest = x;
+                }
+
+            }
+
+            document.getElementById("highest").innerHTML = highest;
+
+        }
+
+    </script>
+
 </body>
 </html>

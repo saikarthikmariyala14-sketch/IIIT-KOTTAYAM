@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: antiquewhite;
+        }
+          #top{
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          }
+           #personel{
+             display: flex;
+             flex-direction: row;
+             gap:20px;
+             background:linear-gradient(green,yellow);
+             padding:20px;
+             font-weight: 900;
+             text-shadow: 1px,0.3px, black;
+           }
+            #header{
+                position:sticky;
+                background: linear-gradient(blue,orange,pink);
+            }
+            #receipt{
+                 display: flex;
+                 background-color: aqua;
+                 font-weight: 800;
+                 font-style: normal;
+                 border :5px solid red;
+                 margin-left: 400px;
+                 margin-right:400px;
+                 flex-direction: row;
+                 justify-content: center;
+                 align-items: center;
+            }
+    </style>
+</head>
+
+<body>
+    <div id="top">
+        <div id="header">
+            <h1>THE AVENUES-PARKING HALT</h1>
+        </div>
+        <div id="personel">
+            <label for="name">Enter your name:</label>
+            <input id="name" type="text">
+            <label for="num">Enter your cars registration number:</label>
+            <input id="num" type="text">
+            <label for="time">Enter total hours of parking:</label>
+            <input id="time" type="number">
+        </div>
+        <button Onclick="parking()">Total parking details</button>
+    </div>
+
+    <p id="receipt">
+
+    </p>
+    <script>
+        function parking(){
+        let time=document.getElementById("time").value;
+        let fee=parkingFee(time);
+        function parkingFee(time){
+           if(time<=2){
+            return time*30;
+           }
+           else if(time>2&&time<=5){
+            return (2*30)+(time-2)*20;
+           }
+            else{
+            return (2*30)+(3*20)+(time-5)*15;
+           }
+        }
+        let dis=discount(fee);
+        function discount(fee){
+               if(fee>=200){
+                return (fee*(0.1));
+               }
+               else return 0;
+        }
+        let final=finalAmount(fee,dis);
+        function finalAmount(fee,dis){
+               return fee-dis;
+        }
+       document.getElementById("receipt").innerHTML=
+            "Total Fee:"+fee+"<br>"+"Discount:"+dis+"<br>"+"Amount To Be Paid:"+final;
+       
+    }
+    </script>
+
+</body>
+
+</html>
